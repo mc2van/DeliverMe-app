@@ -16,7 +16,7 @@ const calcRes = (locationList: Set<locationObject>, carList: Set<locationObject>
     locations: locationList,
     cars: carList
   }
-  axios.post("/api/mtsp", data, {
+  axios.post("http://127.0.0.1:8000/api/mtsp", data, {
     headers: headers
   })
   .then((response) => {
