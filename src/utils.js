@@ -37,7 +37,6 @@ async function handlePlaceSelect(autoComplete, updateQuery, setLocationList, set
   var useArray = inputType === 0 ? true : false;
   const addressObject = autoComplete.getPlace();
   if (!useArray || (useArray && !addressList.includes(addressObject.formatted_address))) {
-    console.log(addressObject)
     const query = {
       id: addressObject.formatted_address,
       address: addressObject.formatted_address,

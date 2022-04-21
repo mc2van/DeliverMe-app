@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import LocationList from './components/LocationList';
 import Input from './components/Input';
 import './App.css';
@@ -14,10 +14,6 @@ function App() {
   const [ carLocationList, setCarLocationList ] = useState(new Set<locationObject>());
   const [ inputScreen, setInputScreen ] = useState(Screens.DeliveryLocations);
   const [ res, setRes ] = useState([""]);
-
-  useEffect(() => {
-    console.log(locationList)
-  }, [locationList])
 
   return (
     <div className="App">
@@ -35,7 +31,9 @@ function App() {
       <Calculate locationList={locationList} carList={carLocationList} setRes={setRes}></Calculate>
       <div>
         {res.map((url: string) => {
-          return <a href={`${url}`}>{url}</a>
+          return <div>
+            <a href={`${url}`}>{url}</a>
+            </div>
         })}
       </div>
     </div>
