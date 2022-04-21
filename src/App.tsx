@@ -13,7 +13,7 @@ function App() {
   const [ locationList, setLocationList ] = useState(new Set<locationObject>());
   const [ carLocationList, setCarLocationList ] = useState(new Set<locationObject>());
   const [ inputScreen, setInputScreen ] = useState(Screens.DeliveryLocations);
-  const [ res, setRes ] = useState(["Results:"]);
+  const [ res, setRes ] = useState([""]);
 
   useEffect(() => {
     console.log(locationList)
@@ -35,7 +35,7 @@ function App() {
       <Calculate locationList={locationList} carList={carLocationList} setRes={setRes}></Calculate>
       <div>
         {res.map((url: string) => {
-          return <a href={`${url}`}>url</a>
+          return <a href={`${url}`}>{url}</a>
         })}
       </div>
     </div>
