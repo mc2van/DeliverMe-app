@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { locationObject } from '../App';
 
 export interface CalculateProps {
@@ -8,19 +8,20 @@ export interface CalculateProps {
   setRes: Function
 }
 
-const calcRes = (locationList: Set<locationObject>, carList: Set<locationObject>) => {
+const calcRes = (locationList: Set<locationObject>, carList: Set<locationObject>, setRes: Function): void => {
   const headers = {
     'Content-Type': 'application/json'
   }
   const data = {
-    locations: locationList,
-    cars: carList
+    locations: Array.from(locationList),
+    cars: Array.from(carList)
   }
-  axios.post("/api/mtsp", data, {
+  axios.post("http://127.0.0.1:8000/api/mtsp", data, {
     headers: headers
   })
   .then((response) => {
-    return response;
+    console.log(response)
+    setRes(response.data)
   })
   .catch((error) => {
     console.log(error)
@@ -29,7 +30,7 @@ const calcRes = (locationList: Set<locationObject>, carList: Set<locationObject>
 
 const Calculate: React.FC<CalculateProps> = ({locationList, carList, setRes}) => {
   return (
-    <button className="inline" onClick={() => setRes(calcRes(locationList, carList))}>calculate!</button>
+    <button className="inline" onClick={() => calcRes(locationList, carList, setRes)}>calculate!</button>
   )
 }
 

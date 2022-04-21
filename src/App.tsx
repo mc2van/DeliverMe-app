@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import LocationList from './components/LocationList';
 import Input from './components/Input';
 import './App.css';
@@ -13,7 +13,11 @@ function App() {
   const [ locationList, setLocationList ] = useState(new Set<locationObject>());
   const [ carLocationList, setCarLocationList ] = useState(new Set<locationObject>());
   const [ inputScreen, setInputScreen ] = useState(Screens.DeliveryLocations);
-  const [ res, setRes ] = useState([]);
+  const [ res, setRes ] = useState(["Results:"]);
+
+  useEffect(() => {
+    console.log(locationList)
+  }, [locationList])
 
   return (
     <div className="App">
