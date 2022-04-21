@@ -35,7 +35,7 @@ function App() {
       <Calculate locationList={locationList} carList={carLocationList} setRes={setRes}></Calculate>
       <div>
         {res.map((url: string) => {
-          return <p>{url}</p>
+          return <a href={`${url}`}>url</a>
         })}
       </div>
     </div>
