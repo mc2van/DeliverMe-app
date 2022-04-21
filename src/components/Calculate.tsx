@@ -6,9 +6,10 @@ export interface CalculateProps {
   locationList: Set<locationObject>
   carList: Set<locationObject>
   setRes: Function
+  setIsLoading: Function
 }
 
-const calcRes = (locationList: Set<locationObject>, carList: Set<locationObject>, setRes: Function): void => {
+const calcRes = (locationList: Set<locationObject>, carList: Set<locationObject>, setRes: Function, setIsLoading: Function): void => {
   const headers = {
     'Content-Type': 'application/json'
   }
@@ -21,16 +22,22 @@ const calcRes = (locationList: Set<locationObject>, carList: Set<locationObject>
   })
   .then((response) => {
     console.log(response)
+    setIsLoading(false)
     setRes(response.data)
   })
   .catch((error) => {
     console.log(error)
+    setIsLoading(false)
+    setRes(["Bad Input"])
   })
 }
 
-const Calculate: React.FC<CalculateProps> = ({locationList, carList, setRes}) => {
+const Calculate: React.FC<CalculateProps> = ({locationList, carList, setRes, setIsLoading}) => {
   return (
-    <button className="inline" onClick={() => calcRes(locationList, carList, setRes)}>calculate!</button>
+    <button className="inline" onClick={() => {
+      setIsLoading(true);
+      calcRes(locationList, carList, setRes, setIsLoading);
+    }}>calculate!</button>
   )
 }
 

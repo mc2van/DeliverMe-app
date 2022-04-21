@@ -40,3 +40,7 @@
 .inline {
   display: inline-block;
 }
+
+.border {
+  margin: 25px;
+}
