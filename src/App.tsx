@@ -56,7 +56,11 @@ function App() {
         )}
       </div>
       <div>
-
+          <p>
+            Enter delivery locations (places for cars to visit) and car starting location(s) to get your route(s)!
+            <br></br>
+            Delivery locations must be unique, car starting locations do not need to be unique.
+          </p>
       </div>
     </div>
   );
