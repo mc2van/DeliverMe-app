@@ -19,14 +19,15 @@ function App() {
   return (
     <div className="App">
       <p>
-        {inputScreen === Screens.DeliveryLocations ? <p>Places to visit!<br></br>Please enter 1 or more delivery locations</p> : <p>Initial locations of drivers!<br></br>Please enter 1 or more initial car location.</p>}
+        {inputScreen === Screens.DeliveryLocations ? <p>Destinations to visit!<br></br>Please enter 1 or more destinations.</p> 
+        : <p>Initial locations of cars!<br></br>Please enter 1 or more initial car location.</p>}
       </p>
       
       <div className="border">
         <div className="inline">
           <select onChange={(e) => setInputScreen(e.target.value === '0' ? 0 : 1)}>
-            <option value='0'>Delivery</option>
-            <option value='1'>Cars</option>
+            <option value='0'>Destinations</option>
+            <option value='1'>Car Locations</option>
           </select>
         </div> 
         <div className="inline">

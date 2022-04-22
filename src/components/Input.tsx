@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = ({setLocationList, setCarLocationList, input
 
   return (
     <div>
-      <input
+      <input className="input"
         ref={autoCompleteRef}
         onChange={event => setQuery(event.target.value)}
         placeholder="Enter a Location"
