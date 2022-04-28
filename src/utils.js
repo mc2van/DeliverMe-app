@@ -20,7 +20,7 @@ export const loadScript = (url, callback) => {
 export function handleScriptLoad(autoComplete, updateQuery, autoCompleteRef, setLocationList, setCarLocationList, inputType) {
   autoComplete = new window.google.maps.places.Autocomplete(
     autoCompleteRef.current,
-    { componentRestrictions: { country: ["us", "ca", "fr"] } }
+    { componentRestrictions: { country: ["fr"] } }
   );
   autoComplete.setFields(["formatted_address", "geometry"]);
   autoComplete.addListener("place_changed", () => {
